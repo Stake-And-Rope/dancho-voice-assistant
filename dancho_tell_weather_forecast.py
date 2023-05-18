@@ -2,14 +2,19 @@ import datetime
 import requests
 
 import pyttsx3
+import datetime
 import pyaudio
 import speech_recognition as sr
 
 MASTER = input("Enter your name: ")
+
 print("Initializing Dancho Voice Assistant")
 
 
+
 engine = pyttsx3.init('sapi5')
+
+engine = pyttsx3.init()
 """READ THE DOCS https://pyttsx3.readthedocs.io/en/latest/engine.html"""
 
 
@@ -28,6 +33,7 @@ wind_speed = response['wind']['speed']
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
+
 
 
 voices = engine.getProperty('voices')
