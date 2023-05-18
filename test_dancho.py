@@ -5,7 +5,7 @@ import speech_recognition as sr
 MASTER = input("Enter your name: ")
 print("Initializing Dancho Voice Assistant")
 
-engine = pyttsx3.init('sapi5')
+engine = pyttsx3.init()
 """READ THE DOCS https://pyttsx3.readthedocs.io/en/latest/engine.html"""
 
 voices = engine.getProperty('voices')
@@ -18,3 +18,4 @@ def speak(audio):
 
 
 speak(f"Hello, {MASTER}")
+
