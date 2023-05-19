@@ -1,6 +1,7 @@
 import pyttsx3
 import pyaudio
 import speech_recognition as sr
+import datetime
 
 MASTER = input("Enter your name: ")
 print("Initializing Dancho Voice Assistant")
@@ -27,10 +28,15 @@ def say_time():
 
 
 def say_date():
-    """"Type your code here"""
-    pass
+    cur_date = datetime.date.today().strftime("%d:%m:%Y")
 
-print("Hello world!")
+    spec_dates = {"17:03", }
+    spec_dates_prompts = {"17:03": f"It's my birthday."}
+
+    if not spec_dates.issuperset(cur_date[:-5]):
+        speak(f"Today's {cur_date}. It's just a regular day")
+    else:
+        speak(f"Today's {cur_date}. {spec_dates_prompts[cur_date[:-5]]}")
 
 # speak(f"Hello, {MASTER}")
 # say_time()
