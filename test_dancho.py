@@ -17,5 +17,19 @@ def speak(audio):
     engine.runAndWait()
 
 
-speak(f"Hello, {MASTER}")
+def greeting():
+    speak(f"Hello {MASTER}")
 
+
+def say_time():
+    """Type your code here"""
+    pass
+
+
+def say_date():
+    """"Type your code here"""
+    pass
+
+# speak(f"Hello, {MASTER}")
+# say_time()
+# say_date()
