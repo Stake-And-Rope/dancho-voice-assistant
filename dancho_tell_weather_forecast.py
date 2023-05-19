@@ -1,6 +1,5 @@
 import datetime
 import requests
-
 import pyttsx3
 import datetime
 import pyaudio

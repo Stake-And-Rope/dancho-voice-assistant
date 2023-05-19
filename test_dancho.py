@@ -30,6 +30,8 @@ def say_date():
     """"Type your code here"""
     pass
 
+print("Hello world!")
+
 # speak(f"Hello, {MASTER}")
 # say_time()
 # say_date()
