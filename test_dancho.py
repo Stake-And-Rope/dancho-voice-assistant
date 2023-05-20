@@ -1,7 +1,7 @@
 import pyttsx3
 import pyaudio
 import speech_recognition as sr
-from datetime import datetime
+import time
 
 MASTER = input("Enter your name: ")
 print("Initializing Dancho Voice Assistant")
@@ -23,15 +23,16 @@ def greeting():
 
 
 def say_time():
-    """Type your code here"""
-    current_time = datetime.now().strftime("%H:%M:%S")
-    return current_time
+    time.ctime()
+    time_ = time.strftime('%H:%M%p')
+    return time_
 
 
 def say_date():
     """"Type your code here"""
     pass
 
+
 speak(f"Hello, {MASTER}")
-speak(f"The current time is {say_time()}")
+speak(f"It is {say_time()}")
 # say_date()
