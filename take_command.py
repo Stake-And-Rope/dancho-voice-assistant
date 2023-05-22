@@ -1,7 +1,9 @@
+import sys
+sys.path.append(r'date_time/')
 import pyttsx3
 import pyaudio
 import speech_recognition as sr
-import current_date_time
+import date_time.current_date_time as current_date_time
 
 """Main Initialization"""
 MASTER = input("Enter your name: ")

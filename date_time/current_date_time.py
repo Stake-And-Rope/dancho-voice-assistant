@@ -9,7 +9,7 @@ def say_time():
 
 
 def say_date():
-    cur_date = datetime.date.today().strftime("%d:%m:%Y")
+    cur_date = datetime.date.today().strftime("%d %B %Y")
     spec_dates = {"17:03", }
     spec_dates_prompts = {"17:03": f"It's my birthday."}
     if not spec_dates.issuperset(cur_date[:-5]):
