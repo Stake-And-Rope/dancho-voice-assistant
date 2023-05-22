@@ -35,5 +35,4 @@ def take_command():
         speak("Say that again please...")
         return "None"
 
-
 take_command()
