@@ -1,6 +1,8 @@
 import subprocess
+
+
 def runner():
     try:
         subprocess.run(input("Please, provide path: "))
-    except ValueError():
+    except ValueError:
         print("Invalid path")
