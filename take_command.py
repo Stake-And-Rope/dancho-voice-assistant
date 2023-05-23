@@ -1,9 +1,13 @@
 import sys
 sys.path.append(r'date_time/')
+sys.path.append(r'wikipedia_search/')
 import pyttsx3
 import pyaudio
 import speech_recognition as sr
+import wikipedia
 import date_time.current_date_time as current_date_time
+
+
 
 """Main Initialization"""
 MASTER = input("Enter your name: ")
@@ -34,16 +38,23 @@ def take_command():
         audio = r.listen(source)
     try:
         print("Processing...")
-        query = r.recognize_google(audio, language='en-US')
-        print(f"User said: {query}\n")
-        if "tell me the date" in query:
+        command = r.recognize_google(audio, language='en-US')
+        print(f"User said: {command}\n")
+        if "tell me the date" in command:
             speak(current_date_time.say_date())
-        if "tell me the time" in query:
+        if "tell me the time" in command:
             speak(f"Right now is: {current_date_time.say_time()}")
+        if "Wikipedia" in command:
+            command = command.replace("Wikipedia", "")
+            results = wikipedia.summary(command, sentences = 3)
+            speak(f"According to Wikipedia: {results}")
+            speak("Do you want to open the full article in your web browser?")
     except Exception as e:
         print(e)
         speak("Say that again please...")
-        return "None"
+        take_command()
+    
+    take_command()
 
 
 speak(say_hello())
