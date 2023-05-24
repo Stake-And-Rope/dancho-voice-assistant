@@ -41,6 +41,9 @@ def say_date():
         speak(f"Today's {cur_date}. {spec_dates_prompts[cur_date[:-5]]}")
 
 
+
+
+
 speak(f"Hello, {MASTER}")
 speak(f"It is {say_time()}")
 speak(say_date())
