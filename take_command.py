@@ -6,13 +6,13 @@ import pyttsx3
 import speech_recognition as sr
 import wikipedia
 import date_time.current_date_time as current_date_time
-import wikipedia_search.article_search as wikipedia_search_article
+import wikipedia_search.article_search as wiki_search
 
 
 """MAIN INITIALIZING"""
 MASTER = input("Enter your name: ")
 print("Initializing Dancho Voice Assistant...")
-engine = pyttsx3.init('dummy')
+engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
@@ -46,7 +46,8 @@ def take_command():
             speak(f"Right now is: {current_date_time.say_time()}")
         if "Wikipedia" in command:
             command = command.replace("Wikipedia", "")
-            speak(f"According to Wikipedia: {wikipedia_search_article(command)}")
+            result = wiki_search.article_search(str(command))
+            speak(f"According to Wikipedia: {result}")
             speak("Do you want to open the full article in your web browser?")
     except Exception as e:
         print(e)
