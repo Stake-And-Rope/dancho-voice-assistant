@@ -1,19 +1,18 @@
 #!/usr/bin/python3
 import sys
-import pyttsx3
-import speech_recognition as sr
-
-"""IMPORT THE SEPARATE EXTERNAL MODULES"""
 sys.path.append(r'date_time/')
 sys.path.append(r'wikipedia_search/')
+import pyttsx3
+import speech_recognition as sr
+import wikipedia
 import date_time.current_date_time as current_date_time
-import wikipedia_search.article_search as wiki_search
+import wikipedia_search.article_search as wikipedia_search_article
 
 
 """MAIN INITIALIZING"""
 MASTER = input("Enter your name: ")
 print("Initializing Dancho Voice Assistant...")
-engine = pyttsx3.init()
+engine = pyttsx3.init('dummy')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
@@ -41,23 +40,14 @@ def take_command():
         print("Processing...")
         command = r.recognize_google(audio, language='en-US')
         print(f"User said: {command}\n")
-        
-        """DANCHO TELLS THE CURRENT DATE"""
         if "tell me the date" in command:
             speak(current_date_time.say_date())
-            
-        """DANCHO TELLS THE CURRENT TIME"""
         if "tell me the time" in command:
             speak(f"Right now is: {current_date_time.say_time()}")
-            
-        """DANCHO SEARCHES FOR ARTICLE IN WIKIPEDIA. IT WILL RETURN ONLY THE FIRST THREE SENTENCES"""
         if "Wikipedia" in command:
             command = command.replace("Wikipedia", "")
-            result = wiki_search.article_search(str(command))
-            speak(f"According to Wikipedia: {result}")
+            speak(f"According to Wikipedia: {wikipedia_search_article(command)}")
             speak("Do you want to open the full article in your web browser?")
-            
-            
     except Exception as e:
         print(e)
         speak("Say that again please...")
