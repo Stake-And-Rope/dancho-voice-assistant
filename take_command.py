@@ -1,18 +1,21 @@
 #!/usr/bin/python3
 import sys
-sys.path.append(r'date_time/')
-sys.path.append(r'wikipedia_search/')
 import pyttsx3
 import speech_recognition as sr
-import wikipedia
+
+"""IMPORT THE SEPARATE MODULES"""
+sys.path.append(r'date_time/')
+sys.path.append(r'wikipedia_search/')
+sys.path.append(r'weather/')
 import date_time.current_date_time as current_date_time
 import wikipedia_search.article_search as wikipedia_search_article
+import weather.weather_forecast as tell_weather
 
 
 """MAIN INITIALIZING"""
 MASTER = input("Enter your name: ")
 print("Initializing Dancho Voice Assistant...")
-engine = pyttsx3.init('dummy')
+engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
@@ -40,14 +43,26 @@ def take_command():
         print("Processing...")
         command = r.recognize_google(audio, language='en-US')
         print(f"User said: {command}\n")
+        
+        """DANCHO TELLS THE DATE"""
         if "tell me the date" in command:
             speak(current_date_time.say_date())
+            
+        """DANCHO TELLS THE TIME"""
         if "tell me the time" in command:
             speak(f"Right now is: {current_date_time.say_time()}")
+            
+        """DANCHO READS FROM WIKIPEDIA"""
         if "Wikipedia" in command:
             command = command.replace("Wikipedia", "")
             speak(f"According to Wikipedia: {wikipedia_search_article(command)}")
             speak("Do you want to open the full article in your web browser?")
+            
+        """DANCHO TELLS THE WEATHER"""
+        if "tell me the weather" in command:
+            speak(f"Today will be: {tell_weather}")
+        
+        
     except Exception as e:
         print(e)
         speak("Say that again please...")
