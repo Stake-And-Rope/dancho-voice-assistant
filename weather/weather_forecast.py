@@ -35,4 +35,4 @@ def retrieve_data_about_the_weather_forecast():
     return weather_forecast_text
 
 
-retrieve_data_about_the_weather_forecast()
+# retrieve_data_about_the_weather_forecast()
