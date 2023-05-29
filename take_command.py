@@ -60,7 +60,7 @@ def take_command():
             
         """DANCHO TELLS THE WEATHER"""
         if "tell me the weather" in command:
-            speak(f"Today will be: {tell_weather}")
+            speak(f"Today will be: {tell_weather.retrieve_data_about_the_weather_forecast()}")
         
         
     except Exception as e:
