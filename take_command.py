@@ -3,6 +3,7 @@ import sys
 import pyttsx3
 import speech_recognition as sr
 
+
 """IMPORT THE SEPARATE MODULES"""
 sys.path.append(r'date_time/')
 sys.path.append(r'wikipedia_search/')
@@ -55,8 +56,10 @@ def take_command():
         """DANCHO READS FROM WIKIPEDIA"""
         if "Wikipedia" in command:
             command = command.replace("Wikipedia", "")
-            speak(f"According to Wikipedia: {wikipedia_search_article(command)}")
+            speak(f"According to Wikipedia: {wikipedia_search_article.article_search(command)}")
             speak("Do you want to open the full article in your web browser?")
+            audio = r.listen(source)
+        
             
         """DANCHO TELLS THE WEATHER"""
         if "tell me the weather" in command:
