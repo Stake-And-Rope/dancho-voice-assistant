@@ -58,9 +58,13 @@ def take_command():
             command = command.replace("Wikipedia", "")
             speak(f"According to Wikipedia: {wikipedia_search_article.article_search(command)}")
             speak("Do you want to open the full article in your web browser?")
-            audio = r.listen(source)
-        
-            
+            r = sr.Recognizer()
+            with sr.Microphone() as source:
+                user_anwser = r.listen(source)
+                command = r.recognize_google(user_anwser, language='en-US')
+                if "yes" in command:
+                    wikipedia_search_article.open_in_browser()
+                
         """DANCHO TELLS THE WEATHER"""
         if "tell me the weather" in command:
             speak(f"Today will be: {tell_weather.retrieve_data_about_the_weather_forecast()}")

@@ -11,7 +11,7 @@ def article_search(search):
     url = result.url
     
     """GET THE FIRST THREE SENTENCES"""
-    content = wikipedia.summary(question, sentences = 3)
+    content = wikipedia.summary(question, sentences = 1)
     
     print(content, url)
     return content
