@@ -1,7 +1,7 @@
 import requests
 
 
-def retrieve_data_about_the_weather_forecast():
+def retrieve_data_about_the_weather_forecast(city_):
     """
     This function retrieves data from the internet and returns a string about the current weather
      in the city of Sofia.
@@ -19,10 +19,13 @@ def retrieve_data_about_the_weather_forecast():
     weather_forecast_text = ''
 
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    city = "Sofia"
+    city = city_
 
     url = base_url + "q=" + city + "&appid=" + "f4e5b648421e4d481828851a5763cbf1"
     response = requests.get(url).json()
+    if len(response) < 3:  # The response in case the locality not found is dictionary with two elements.
+        print(f"I cannot find this locality. Can you try either check for misspelled in entered locality or to choose another bigger settlement in that area.")
+        return f"I cannot find this locality. Could you try either check for misspelled in entered locality or to choose another bigger settlement in that area."
     weather_type = response['weather'][0]['main']
     weather_type_further_description = response['weather'][0]['description']
     current_temperature_in_celsius = response['main']['temp'] - 273.15
@@ -35,4 +38,5 @@ def retrieve_data_about_the_weather_forecast():
     return weather_forecast_text
 
 
-# retrieve_data_about_the_weather_forecast()
+# retrieve_data_about_the_weather_forecast(input())
+# retrieve_data_about_the_weather_forecast(input())
