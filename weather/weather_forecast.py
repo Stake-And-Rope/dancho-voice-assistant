@@ -36,24 +36,5 @@ def retrieve_data_about_the_weather_forecast(city_):
     except (Exception) as error:
         print("City not found")
         return f"I cannot find this location {city_}. Try again with bigger nearest location."
-    
-    
-    
-    
-    # if len(response) < 3:  # The response in case the locality not found is dictionary with two elements.
-    #     print(response)
-    #     print(f"I cannot find this location --> {city_}. Try again with bigger nearest location.")
-    #     return f"I cannot find this location {city_}. Try again with bigger nearest location."
-    # weather_type = response['weather'][0]['main']
-    # weather_type_further_description = response['weather'][0]['description']
-    # current_temperature_in_celsius = response['main']['temp'] - 273.15
-    # feels_like_in_celsius = response['main']['feels_like'] - 273.15
-    # temperature_min_celsius = response['main']['temp_min'] - 273.15
-    # temperature_max_celsius = response['main']['temp_max'] - 273.15
-
-    # weather_forecast_text = f'Today will be {weather_type} with {weather_type_further_description}. The current temperature is {current_temperature_in_celsius:.1f} degrees celsius and will feel like {feels_like_in_celsius:.1f} degrees celsius. The minimal temperature will be {temperature_min_celsius:.1f} degrees celsius. The maximal temperature will be {temperature_max_celsius:.1f} degrees celsius. '
-    # print(weather_forecast_text)
-    # return weather_forecast_text
-
 
 # retrieve_data_about_the_weather_forecast("diofhduigfr")
