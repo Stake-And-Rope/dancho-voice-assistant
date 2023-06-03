@@ -35,6 +35,8 @@ def say_hello():
 
 def take_command():
     """TAKES ANY COMMAND FROM THE USER"""
+    rate = 200
+    engine.setProperty('rate', rate)
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -67,11 +69,13 @@ def take_command():
                 
         """DANCHO TELLS THE WEATHER"""
         if "tell me the weather" in command:
-            speak(f"Today will be: {tell_weather.retrieve_data_about_the_weather_forecast()}")
-        
+            rate = engine.getProperty('rate') # Default value = 200 words per minute
+            engine.setProperty('rate', rate-10)
+            city = command.split()[-1]
+            speak(f"{tell_weather.retrieve_data_about_the_weather_forecast(city)}")
+
         
     except Exception as e:
-        print(e)
         speak("Say that again please...")
         take_command()
     
