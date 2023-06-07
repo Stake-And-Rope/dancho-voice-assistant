@@ -7,3 +7,6 @@
 
 # Ignore python cache
 __pycache__/
+
+# Ignore the API_key
+API_key
