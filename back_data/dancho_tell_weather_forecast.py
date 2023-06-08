@@ -48,3 +48,5 @@ engine.runAndWait()
 speak(f"Hello, {MASTER}")
 speak(f"Today {day} the weather in Sofia will be {weather_type} with speed of the wind {wind_speed}.")
 speak(f"Have a nice day!")
+
+speak()
