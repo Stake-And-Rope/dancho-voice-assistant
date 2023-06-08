@@ -10,3 +10,6 @@ __pycache__/
 
 # Ignore the API_key
 API_key
+
+# Ignore the env file
+.env
