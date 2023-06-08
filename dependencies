@@ -4,4 +4,5 @@ SpeechRecognition==3.10.0
 wikipedia==1.4.0
 certifi==2022.12.7
 google-api-python-client==2.88.0
+python-decouple==3.8
 
