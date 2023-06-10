@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 from decouple import config
 import json
 
-api_key = config('GOOGLE_TOKEN')
+api_key = config('AIzaSyDX_OCsTfYOHLs2hosNys3B8WSCsD3ghUc')
 
 def search_results(search):
     youtube = build("youtube", "v3", developerKey=api_key)
@@ -19,5 +19,5 @@ def search_results(search):
 
 search_results("how to python to json")
 
-#if __name__ == "__main__":
-#    search_results()
+if __name__ == "__main__":
+    search_results()
