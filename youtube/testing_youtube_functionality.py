@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import json
 import os
 import sys
@@ -77,4 +79,4 @@ def get_5_playlists_as_urls():
     return list_of_urls
 
 
-# get_5_playlists_as_urls()
+get_5_playlists_as_urls()
