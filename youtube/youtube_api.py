@@ -8,7 +8,7 @@ api_key = config('GOOGLE_TOKEN')
 
 def search_results(search):
     youtube = build("youtube", "v3", developerKey=api_key)
-    request = youtube.search().list(q=search, part='snippet', type='playlist')
+    request = youtube.search().list(q=search, part='snippet', type='videos')
     results = request.execute()
     # print(results)
     json_results = json.dumps(results)
@@ -17,7 +17,7 @@ def search_results(search):
 
 
 
-search_results("how to python to json")
+search_results("kittens")
 
-if __name__ == "__main__":
-    search_results()
+#if __name__ == "__main__":
+#    search_results()
