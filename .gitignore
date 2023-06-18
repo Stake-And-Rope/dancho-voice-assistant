@@ -7,6 +7,8 @@
 
 # Ignore python cache
 __pycache__/
+spotify/.cache
+
 
 # Ignore the API_key
 API_key
