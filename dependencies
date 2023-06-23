@@ -1,0 +1,8 @@
+pyttsx3==2.90
+pyaudio==0.2.13
+SpeechRecognition==3.10.0
+wikipedia==1.4.0
+certifi==2022.12.7
+google-api-python-client==2.88.0
+python-decouple==3.8
+spotipy==2.23.0

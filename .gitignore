@@ -1,0 +1,17 @@
+
+# Ignore .idea directory from PyCharm
+.idea/
+
+# Ignore .vscode directory from VSCode
+.vscode/
+
+# Ignore python cache
+__pycache__/
+spotify/.cache
+
+
+# Ignore the API_key
+API_key
+
+# Ignore the env file
+.env
