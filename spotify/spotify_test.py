@@ -17,6 +17,10 @@ token = token_dict['access_token']
 spotifyObject = spotipy.Spotify(auth=token)
 user_name = spotifyObject.current_user()
 
+#devices = spotifyObject.currently_playing()
+#print(devices)
+
+
 # To print the JSON response from
 # browser in a readable format.
 # optional can be removed
